@@ -6,7 +6,6 @@ import ContactList from './ContactList';
 import Filter from './Filter';
 import ButtonThemeChanger from './ButtonThemeChanger';
 import ThemeContext from '../context/ThemeContext';
-import themeConfig from '../context/ThemeContext';
 
 class App extends Component {
   state = {
@@ -81,7 +80,7 @@ class App extends Component {
     const { contacts, filter, theme } = this.state;
     const visibleContact = this.getVisibleContacts();
     return (
-      <ThemeContext.Provider value={themeConfig[this.state.theme]}>
+      <ThemeContext.Provider value={this.state.theme}>
         <Layout>
           <p>Change theme</p>
           <ButtonThemeChanger

@@ -1,6 +1,10 @@
 import React from 'react';
 import './Layout.css';
+import withTheme from '../../hoc/withTheme';
 
-const Layout = ({ children }) => <div className="Layout">{children}</div>;
+const Layout = ({ children, theme }) => {
+  const classNameTheme = theme === 'dark' ? 'dark' : 'light';
+  return <div className={`Layout-${classNameTheme}`}>{children}</div>;
+};
 
-export default Layout;
+export default withTheme(Layout);
